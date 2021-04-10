@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const GuessedWords = ({ secretWord, success, guessedWords }) => {
   return (
     <div data-test='component-guessed-words'>
