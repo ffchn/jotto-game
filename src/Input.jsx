@@ -1,6 +1,7 @@
 import React from 'react'
+import { getLetterMatchCount } from './helpers'
 
-const Input = ({ success, secretWord }) => {
+const Input = ({ success, secretWord, guessedWords }) => {
   const [currentGuess, setCurrentGuess] = React.useState('')
 
   const handleInputChange = (e) => {
@@ -9,6 +10,13 @@ const Input = ({ success, secretWord }) => {
 
   const submit = (e) => {
     e.preventDefault()
+
+    const matchingCount = getLetterMatchCount(currentGuess, secretWord)
+
+    // guessedWords.push({
+    //   guessedWord: currentGuess,
+    //   letterMatchCount: matchingCount,
+    // })
     //TODO: update guessedWords
     //TODO: check against secretword and update success if needed
 

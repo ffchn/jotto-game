@@ -1,21 +1,20 @@
 import Congrats from './Congrats'
 import GuessedWords from './GuessedWords'
 
+import Input from './Input'
 import './App.css'
 
-const App = () => {
+const App = ({ success = false, secretWord = 'party', guessedWords = [] }) => {
   return (
-    <div className='App'>
-      <h1>Jotto Game</h1>
-      <Congrats success={false} />
-      <GuessedWords
-        guessedWords={[
-          {
-            guessedWord: 'train',
-            letterMatchCount: 3,
-          },
-        ]}
+    <div data-test='component-app' className='App'>
+      <h1>Jotto</h1>
+      <Congrats success={success} />
+      <Input
+        success={success}
+        secretWord={secretWord}
+        guessedWords={guessedWords}
       />
+      <GuessedWords guessedWords={guessedWords} />
     </div>
   )
 }

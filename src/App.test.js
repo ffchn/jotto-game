@@ -1,8 +1,13 @@
 import { shallow } from 'enzyme'
+import { findByTestAttr } from '../test/utils'
 import App from './App'
 
-test('renders app title', () => {
-  const wrapper = shallow(<App />)
-  const title = wrapper.find('h1')
-  expect(title.text()).toBe('Jotto Game')
+const setup = () => {
+  return shallow(<App />)
+}
+
+test('renders without errors', () => {
+  const wrapper = setup()
+  const app = findByTestAttr(wrapper, 'component-app')
+  expect(app).toHaveLength(1)
 })
