@@ -7,6 +7,14 @@ const Input = ({ secretWord }) => {
     setCurrentGuess(e.target.value)
   }
 
+  const submit = (e) => {
+    e.preventDefault()
+    //TODO: update guessedWords
+    //TODO: check against secretword and update success if needed
+
+    setCurrentGuess('')
+  }
+
   return (
     <div data-test='component-input'>
       <form>
@@ -16,7 +24,9 @@ const Input = ({ secretWord }) => {
           value={currentGuess}
           onChange={handleInputChange}
         />
-        <button data-test='submit-button'>Guess</button>
+        <button data-test='submit-button' onClick={submit}>
+          Guess
+        </button>
       </form>
     </div>
   )
