@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Input = ({ secretWord }) => {
+const Input = ({ success, secretWord }) => {
   const [currentGuess, setCurrentGuess] = React.useState('')
 
   const handleInputChange = (e) => {
@@ -17,17 +17,19 @@ const Input = ({ secretWord }) => {
 
   return (
     <div data-test='component-input'>
-      <form>
-        <input
-          type='text'
-          data-test='text-field'
-          value={currentGuess}
-          onChange={handleInputChange}
-        />
-        <button data-test='submit-button' onClick={submit}>
-          Guess
-        </button>
-      </form>
+      {!success && (
+        <form>
+          <input
+            type='text'
+            data-test='text-field'
+            value={currentGuess}
+            onChange={handleInputChange}
+          />
+          <button data-test='submit-button' onClick={submit}>
+            Guess
+          </button>
+        </form>
+      )}
     </div>
   )
 }
